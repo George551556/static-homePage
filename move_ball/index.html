@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <style>
+        body {
+            /*background-color: black;*/
+            /* 吧鼠标隐藏 */
+            cursor: none;
+        }
+
+        #box {
+            width: 60px;
+            height: 60px;
+            /*  background-image: url(./img/src=http\ _hbimg.b0.upaiyun.com_f3036a3b5396956d8a3854d4f245f2597795fc8a4b269-YIXvKe_fw658&refer=http\ _hbimg.b0.upaiyun.com&app=2002&size=f9999\,10000&q=a80&n=0&g=0n&fmt=jpeg.gif);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 150px; */
+            background-color: rgb(156, 100, 156);
+            position: absolute;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+</body>
+<script>
+    var box = document.getElementById('box');
+/* 绑定鼠标移动事件 */
+    document.onmousemove = function(e) {
+/* 获取x位置 */
+    var x = e.pageX;
+/* 获取y位置 */
+    var y = e.pageY;
+/* 设置左右，通过定位 */
+    box.style.left = x - (box.offsetWidth / 2) + 'px';
+    box.style.top = y - (box.offsetHeight / 2) + 'px';
+}
+</script>
+</html>

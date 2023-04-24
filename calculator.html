@@ -1,0 +1,285 @@
+<!doctype html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Calculator</title>
+
+    </head>
+
+    <style>
+
+    *{ font-size:36px;}
+
+    body{
+        background-color: khaki;
+    }
+
+    #t{ 
+
+        width:480px;
+
+         height:80px;
+
+         text-align: right;
+
+         font-size: 48px;
+
+         background-color: white;
+
+         }
+
+    .number{
+        width:120px; 
+
+        height:80px;
+
+        background-color:pink;
+
+        margin: 0;
+
+        display: block;
+
+        }
+
+    .signs{
+        width:120px; 
+
+        height:80px;
+
+        background-color:  rgb(235, 199, 235);
+
+        margin: 0;
+
+        display: block;
+
+ 
+
+    }
+
+    .shaw{ 
+
+        width:120px; 
+
+        height:80px;
+
+        background-color:  rgb(235, 199, 235);
+
+        margin: 0;
+
+        display: block;
+
+ 
+
+        }
+
+    .equal{ 
+
+        width:120px; 
+
+        height:80px;
+
+        background-color:  rgb(235, 199, 235);
+
+        margin: 0;
+
+        display: block;
+
+        }
+
+    .kuohao{
+        width: 60px;
+
+        height: 80px;
+
+        float: left;
+
+        align-self: 0;
+
+        background-color:  rgb(235, 199, 235);
+
+        }
+
+    table td,table th{
+        border:1px solid rgb(235, 199, 235);        
+
+    }
+
+    table tr:nth-child(odd){
+        background: rgb(223, 164, 164);
+
+    }
+
+    </style>
+
+ 
+
+<script>
+
+    //设置标志，用于没有输入时显示0，以及有显示时清空
+
+    var flag=true; 
+
+    function func(str){
+    var t=document.getElementById("t");
+
+    if(flag){
+    //清除没有输入时的0
+
+    t.value=""; 
+
+        }
+
+    //改变状态，不再清空内容
+
+    flag=false; 
+
+    //将之前的内容和输入的内容相加，重新显示
+
+    t.value=t.value+str;
+
+ 
+
+    }
+
+    //回退一个数，相当于撤销
+
+    function backspace(){
+        var t=document.getElementById("t");
+
+        t.value=t.value.substr(0,t.value.length-1);
+
+    }
+
+ 
+
+    //清空显示内容
+
+    function AC(){
+        var t=document.getElementById("t");
+
+        //显示0
+
+        t.value="0";
+
+        //让下次输入可以清空0
+
+        flag=true;
+
+    }
+
+    //计算结果
+
+    function equals(){
+    var t=document.getElementById("t");
+
+    //将字符串转换为逻辑运算
+
+    t.value=eval(t.value);
+
+    }
+
+</script>
+
+<body>
+
+<!--    内边距          外边距        边框        居中-->
+
+<table cellpadding="0" cellspacing="0" border="0"  align="center" >
+
+    <tr>
+
+        <td colspan="4">
+
+            <input type="text" value="0" id="t" />
+
+        </td>        
+
+    </tr>
+
+        <tr>
+
+             <td><input type="button" class="number" value="7"  onClick="func('7')"/></td>
+
+             <td><input type="button" class="number" value="8" onClick="func('8')"/></td>
+
+             <td><input type="button" class="number" value="9" onClick="func('9')"/></td>
+
+             <td><input type="button" class="signs" value="/" onClick="func('/')"/></td>             
+
+        </tr>
+
+         <tr>
+
+                <td><input type="button" class="number" value="4" onClick="func('4')"/></td>
+
+                <td><input type="button" class="number" value="5" onClick="func('5')"/></td>
+
+                <td><input type="button" class="number" value="6" onClick="func('6')"/></td>
+
+                <td><input type="button" class="signs" value="*" onClick="func('*')"/></td>
+
+                
+
+        </tr>
+
+          <tr>
+
+                <td><input type="button" class="number" value="1" onClick="func('1')"/></td>
+
+                <td><input type="button" class="number" value="2" onClick="func('2')"/></td>
+
+                <td><input type="button" class="number" value="3" onClick="func('3')"/></td>
+
+                <td><input type="button" class="signs" value="-" onClick="func('-')"/></td>
+
+        </tr>
+
+          <tr>
+
+                <td><input type="button" class="number" value="0" onClick="func('0')"/></td>
+
+                <td><input type="button" class="shaw" value="." onClick="func('.')"/></td>
+
+                <td><input type="button" class="number" value="00" onClick="func('00')"/></td>
+
+                <td><input type="button" class="signs" value="+" onClick="func('+')"/></td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <input type="button" class="kuohao" value="(" onClick="func('(')"/>
+
+                
+
+                <input type="button" class="kuohao" value=")" onClick="func(')')"/>
+
+            </td>
+
+            <td><input type="button"  class="shaw" value="后退" style="float:top" onClick="backspace()"/></td>
+
+            <td>
+
+                <input type="button" class="shaw" value="清除" onClick="AC()"/>
+
+                </td>
+
+            <td rowspan="2"><input type="button" value="=" class="equal" onClick="equals()"/></td>
+
+            
+
+        </tr>          
+
+    </table>
+————————————————
+版权声明：本文为CSDN博主「m0_58822398」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<a href="https://blog.csdn.net/m0_58822398/article/details/117785735">https://blog.csdn.net/m0_58822398/article/details/117785735</a>
+</body>
+
+</html>

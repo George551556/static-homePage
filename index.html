@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:E="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ev</title>
+<!--    <link rel = "stylesheet" type= "text/css" href = "lantern/lantern.css" media = "screen" />-->
+    <style>
+        body{
+            /*background: linear-gradient(100deg,#ffb6c1 , #9795f0);渐变背景色*/
+            background-color: navajowhite;
+        }
+        .fl{
+            width:20%;
+            /*border:2px solid #de48a1;*/
+            float:left;
+            border-right: 2px solid #ffb5f0;
+            border-radius: 20px;
+        }
+        .fr{
+            width:79%;
+            /*border:2px solid #de48a1;*/
+            float: right;
+            box-shadow: 0 20px 20px 5px rgba(132, 132, 132, 0.2) ;
+        }
+        .clear_fix{
+            height: 0;
+            clear: both;
+            line-height: 0;
+            font-size: 0;
+        }
+        .main_search{
+            width: fit-content;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .main_search:focus-within{
+            box-shadow: 0 0 10px rgba(0,0,0,0.6);
+        }
+        .sites_container{ /*每个网址的div */
+            width: 160px;
+            height: fit-content;
+            /* background: linear-gradient(100deg,#54f26f , #f8c90e); */
+            background-color: rgb(219, 200, 170);
+            border-radius:8px;
+            border: 2px solid #000;
+            margin-bottom: 3px;
+            display: inline-block;
+            font-size: 20px;
+        }
+        div.sites_container:hover {
+            background-color: orange;
+        }
+
+    </style>
+    
+</head>
+<body>
+<!--<EMBED src="image/nuannuan.mp3" width=300 height=50 type=audio/mpeg loop="-1" autostart="FALSE" volume="100">-->
+
+<!-- 过年了，加个灯笼，祝大家新年快乐。。灯笼过了正月十五再取。。 -->
+<!--<div class="xnkl">-->
+<!--    <div class="deng-box2">-->
+<!--        <div class="deng">-->
+<!--            <div class="xian"></div>-->
+<!--            <div class="deng-a">-->
+<!--                <div class="deng-b">-->
+<!--                    <div class="deng-t">年</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="shui shui-a">-->
+<!--                <div class="shui-c"></div>-->
+<!--                <div class="shui-b"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="deng-box3">-->
+<!--        <div class="deng">-->
+<!--            <div class="xian"></div>-->
+<!--            <div class="deng-a">-->
+<!--                <div class="deng-b">-->
+<!--                    <div class="deng-t">新</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="shui shui-a">-->
+<!--                <div class="shui-c"></div>-->
+<!--                <div class="shui-b"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="deng-box1">-->
+<!--        <div class="deng">-->
+<!--            <div class="xian"></div>-->
+<!--            <div class="deng-a">-->
+<!--                <div class="deng-b">-->
+<!--                    <div class="deng-t">乐</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="shui shui-a">-->
+<!--                <div class="shui-c"></div>-->
+<!--                <div class="shui-b"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="deng-box">-->
+<!--        <div class="deng">-->
+<!--            <div class="xian"></div>-->
+<!--            <div class="deng-a">-->
+<!--                <div class="deng-b">-->
+<!--                    <div class="deng-t">快</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="shui shui-a">-->
+<!--                <div class="shui-c"></div>-->
+<!--                <div class="shui-b"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<center>
+    <br>
+    <br>
+    <h2>搜索</h2>
+    <div class="main_search">
+        <input id="wd" style="font-size: 23px;border-radius: 6px;" size="38" placeholder=" 🔍"/>
+        <img src="image/chachacha.png" width="28px" height="28px" style="margin-bottom: -5px" onclick="fun_chachacha()" title="清除"/>
+    </div>
+        <br>
+    <input type="button" value="搜索(默认)" onclick="jump_baidu()" style="background-color: dodgerblue; font-size: 20px;border-radius: 13px"title="按下回车即可搜索">
+    <input type="button" value="CSDN搜索(+1)" onclick="jump_CSDN()" style="background-color: orange; font-size: 20px;border-radius: 13px"/>
+    <input type="button" value="哔哩哔哩(+2)" onclick="jump_bilibili()" style="background-color: coral; font-size: 20px;border-radius: 13px"/><br>
+    <input type="button" value="英汉互译(+space)" onclick="jump_fanyi_en_ch()" style="font-size: 20px;border-radius: 13px"/>
+    <input type="button" value="知乎(+3)" onclick="jump_fanyi_en_ch()" style="font-size: 20px;border-radius: 13px"/>
+   <hr>
+
+    <!-- <img class="xin" src="image/pink.png" width="50" height="37" onclick="control_music(this)" title="播放/暂停背景音乐"/>
+    <audio id="music" src="image/nuannuan.mp3" loop="loop" autoplay="autoplay"></audio> -->
+<!--        <button onclick="control_music()" style="font-size: 20px">🎵🎵🎵</button><br>-->
+    <div class="sites_container">
+        <a href="playOrStudy.html">POS</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://cli.im/">草料二维码</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://uutool.cn/text2voice/">文字转语音</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://www.btnull.org/">BTnull无名小站</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://www.cpsctest.com/">茶杯狐</a>
+    </div>
+    <div class="sites_container">
+        <a href="http://svip.daidaijx.cn/index.php">svip影院</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://www.hippopx.com/">图库</a>
+    </div>
+    <br>
+    <div class="sites_container">
+        <a href="https://www.51voa.com/">VOA Special</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://changjiang.yuketang.cn/v2/web/index">雨课堂</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://s.weibo.com/top/summary">微博</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://www.bilibili.com/account/history">bilibili历史记录</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://mubu.com/app">幕布</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://www.xiezuocat.com/#/">秘塔写作猫</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://music.y444.cn/#/">音乐下载</a>
+    </div>
+    <br>
+    <div class="sites_container">
+        <a href="https://brie.fi/ng">多人视频</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://mail.163.com">网易邮箱</a>
+    </div>
+    <div class="sites_container">
+        <a href="http://www.cxy521.com/">程序员导航</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://www.zhihu.com/">知乎</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://sms-activate.org/cn">临时国外手机号</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://colab.research.google.com/">Colaboratory</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://www.autodl.com/console/instance/list">AutoDl</a>
+    </div>
+    <br>
+    <div class="sites_container">
+        <a href="https://www.dxsbb.com/">大学生必备网</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://niutrans.com/cloud/overview">小牛翻译控制台</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://www.wjx.cn/"">问卷星</a>
+    </div>
+    <div class="sites_container">
+        <a href="https://agentgpt.reworkd.ai/"">agentgpt</a>
+    </div>
+    
+    <div class="sites_container">
+        <a href="https://chat.openai.com/chat/fcdf73d1-33e5-459a-9088-adcd3f7d7d4c?__cf_chl_rt_tk=pvscYkG7Qxkx1W5gpopMPduhhp6dmlXimPhguvkwyKk-1679992642-0-gaNycGzNGjs" >ChatGpt</a>
+    </div>
+    <!-- <div class="sites_container">
+        <a href="" ></a>
+    </div>
+    <div class="sites_container">
+        <a href="" ></a>
+    </div> -->
+
+</center>
+
+
+
+</body>
+<script>
+    document.getElementById("wd").focus();
+    document.onkeydown = KeyPress;
+    function KeyPress(){//监测按键（回车）情况
+        var key;
+        key = event.keyCode;
+        if(key==13){
+            window.location.href=get_wd_search();
+        }
+    }
+    function get_wd_search(){//设置输入框转向目的地址
+        var wd_init = document.getElementById("wd").value;//获取输入框内容
+        var wd = wd_init.substr(0, wd_init.length-1);
+        var search_index = wd_init.charAt(wd_init.length-1);//要转向的网站id
+
+        //根据前缀判断，若输入的是网址（前缀为（https:）或（http：）），则直接转向该网址
+        var wd_head = wd_init.substr(0, 6);//截取从0开始的6个字符
+        var wd_head_1=wd_init.substr(0, 4);//判断是否为www.
+        if (wd_head=="https:"||wd_head=="http:/"){
+            return wd_init;
+        }
+        else if(wd_head_1=="www."){
+            return "https://"+wd_init;
+        }
+
+        if(search_index=='1')//CSDN
+            return "https://so.csdn.net/so/search?spm=1000.2115.3001.7499&q="+wd;
+        else if(search_index=='2')//哔哩哔哩
+            return "https://search.bilibili.com/all?keyword="+wd;
+        else if (search_index==' ')//英译汉
+            return "https://fanyi.baidu.com/?aldtype=16047#en/zh/"+wd;
+        else if (search_index=='3')//知乎
+            return "https://www.zhihu.com/search?type=content&q="+wd;
+        else
+            return "https://cn.bing.com/search?q="+wd_init;
+    }
+
+    // function control_music(i){
+    //     var audio = document.getElementById('music');
+    //     if(audio.paused){
+    //         audio.play();
+    //         i.width=100;
+    //         i.height=75;
+    //     }
+    //     else{
+    //         audio.pause();
+    //         i.width=50;
+    //         i.height=37;
+    //     }
+    // }
+    
+    function fun_chachacha() {//清除输入框内容
+        var wd = document.getElementById("wd");
+        wd.value="";
+    }
+
+</script>
+
+</html>
